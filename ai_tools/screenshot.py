@@ -5,7 +5,7 @@ import pyscreenshot
 
 # Get screen size, run to fix the size of the canvas
 size = pyautogui.size()
-print(size)
+# print(size)
 
 
 def take_screenshot(image_path):
