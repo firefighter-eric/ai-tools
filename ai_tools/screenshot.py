@@ -1,14 +1,14 @@
 import tkinter as tk
 
 import pyautogui
-import pyscreenshot as ImageGrab
+import pyscreenshot
 
 # Get screen size, run to fix the size of the canvas
 size = pyautogui.size()
 print(size)
 
 
-def take_screenshot():
+def take_screenshot(image_path):
     root = tk.Tk()
     root.attributes('-fullscreen', True)
     root.attributes('-alpha', 0.3)
@@ -40,8 +40,8 @@ def take_screenshot():
         root.destroy()
 
         if rect is not None:
-            im = ImageGrab.grab(bbox=rect)
-            im.save('screenshot.png')
+            im = pyscreenshot.grab(bbox=rect)
+            im.save(image_path)
 
     show()
     canvas.bind('<ButtonPress-1>', on_button_press)
@@ -53,4 +53,4 @@ def take_screenshot():
 
 
 if __name__ == '__main__':
-    r = take_screenshot()
+    r = take_screenshot('data/screenshot.png')
